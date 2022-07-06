@@ -15,9 +15,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    ipservice = LoremIpsumService.new
 
-    if @article.save
+    @article = Article.new(article_params)
+    @article.body = ipservice.gerador(5,4)
+
+    if @article.save  
       redirect_to @article
     else
       render :new, status: :unprocessable_entity

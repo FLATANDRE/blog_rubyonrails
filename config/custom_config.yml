@@ -1,0 +1,2 @@
+development:
+  ipsum_api_base_url: "http://localhost:9080/api"
