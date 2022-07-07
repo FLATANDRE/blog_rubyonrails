@@ -17,6 +17,6 @@ class LoremIpsumService
     def gerador(paragraphs,phrases)
         url = @base_url + '/v1/geradoripsum?paragraphs=' + paragraphs.to_s + '&phrases=' + phrases.to_s
         request = RestClient.get(url, headers)
-        JSON.parse request.body
+        JSON.parse(request.body, object_class: OpenStruct)
     end
 end

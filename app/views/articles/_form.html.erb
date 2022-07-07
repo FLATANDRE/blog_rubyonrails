@@ -6,6 +6,13 @@
       <div><%= message %></div>
     <% end %>
   </div>
+  <br>
+
+  <div> 
+    <%= label_tag :auto_body %>
+    <%= check_box_tag :auto_body %><br>
+  </div>
+  <br>
 
   <div>
     <%= form.label :body %><br>
@@ -14,14 +21,17 @@
       <div><%= message %></div>
     <% end %>
   </div>
+  <br>
 
   <div>
     <%= form.label :status %><br>
     <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
   </div>
+  <br>
 
 
   <div>
+    <%= link_to "Cancel", root_url %>  
     <%= form.submit %>
   </div>
 <% end %>

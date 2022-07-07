@@ -1,24 +1,15 @@
-# README
+# README Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install Settings
 
-Things you may want to cover:
+### install dependencies
+Run commands above to install dependencies to Rails. In Rails version 7 the <i>rails-ujs</i> is removed.
+<br>
+`$ rails importmap:install `
+<br>
+`$ rails turbo:install stimulus:install`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Custom Config
+In file app/config/custom_config.rb there are custom enviroment config that corresponds to deployment enviroments.
+<br>
+This blog application depends on Lorem Ipsum API ([Project](https://github.com/FLATANDRE/ipsumloremgenerator_api))

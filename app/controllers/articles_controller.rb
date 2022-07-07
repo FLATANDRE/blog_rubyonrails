@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   def show  
     @article = Article.find(params[:id])
+    puts 'in show'
   end
 
   def new 
@@ -15,11 +16,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    ipservice = LoremIpsumService.new
-
     @article = Article.new(article_params)
-    @article.body = ipservice.gerador(5,4)
 
+    if params[:auto_body] == '1'
+      @article.body = get_auto_generated_body(5,4)  
+    end
+    
     if @article.save  
       redirect_to @article
     else
@@ -43,6 +45,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    puts ' IN DESTROY '
     @article.destroy
 
     redirect_to root_path, status: :see_other
@@ -51,5 +54,15 @@ class ArticlesController < ApplicationController
   private
     def article_params
       params.require(:article).permit(:title, :body, :status)
+    end
+
+    def get_auto_generated_body(paragraphs,phrases)
+      ipservice = LoremIpsumService.new
+      apiResponse = ipservice.gerador(paragraphs,phrases)
+      body = String.new
+      apiResponse.text.each do |paragraph|
+        body += paragraph
+      end
+      body
     end
 end
