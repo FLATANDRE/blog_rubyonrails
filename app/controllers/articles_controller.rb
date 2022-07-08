@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = Article.all
+    flash.now[:notice] = "Our blog has #{Article.public_count} articles and counting!"
   end
 
   def show  
@@ -17,7 +18,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
+    logger.info "Creating blog article"
+    
     if params[:auto_body] == '1'
       @article.body = get_auto_generated_body(5,4)  
     end
@@ -36,6 +38,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     
+    
     if @article.update(article_params)
       redirect_to @article
     else 
@@ -45,9 +48,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    puts ' IN DESTROY '
+    logger.info "Deleting blog article id #{params[:id]}"
+    
     @article.destroy
-
     redirect_to root_path, status: :see_other
   end
 

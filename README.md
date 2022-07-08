@@ -9,6 +9,9 @@ Run commands above to install dependencies to Rails. In Rails version 7 the <i>r
 <br>
 `$ rails turbo:install stimulus:install`
 
+# configure Bootstrap 5 - without NodeJs
+[Step-by-step](https://dev.to/coorasse/rails-7-bootstrap-5-and-importmaps-without-nodejs-4g8)
+
 ## Custom Config
 In file app/config/custom_config.rb there are custom enviroment config that corresponds to deployment enviroments.
 <br>
