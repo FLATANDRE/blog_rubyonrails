@@ -16,3 +16,9 @@ Run commands above to install dependencies to Rails. In Rails version 7 the <i>r
 In file app/config/custom_config.rb there are custom enviroment config that corresponds to deployment enviroments.
 <br>
 This blog application depends on Lorem Ipsum API ([Project](https://github.com/FLATANDRE/ipsumloremgenerator_api))
+
+
+## Tips
+
+# Tip 1
+After a change in one asset you must run `rails assets:precompile` for Rails regenerate assets like js scripts.

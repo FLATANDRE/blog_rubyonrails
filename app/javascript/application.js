@@ -4,3 +4,17 @@ import "bootstrap"
 
 import "@hotwired/turbo-rails"
 import "controllers"
+
+const option = {
+    animation : true,
+    autohide : true,
+    delay : 5000,
+}
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl, option)
+})
+
+toastList.forEach(toast => {
+  toast.show();
+});
