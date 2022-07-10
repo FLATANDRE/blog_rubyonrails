@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = Article.all
+    @categories = CategoriesController.get_all_categories
     flash.now[:notice] = "Our blog has #{Article.public_count} articles and counting!"
   end
 
@@ -29,6 +30,10 @@ class ArticlesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
+  rescue => e
+    logger.error "Error ocurred: #{e.message}"
+    logger.error "Backtrace: #{e.backtrace.join("\n")}"
   end
 
   def edit
