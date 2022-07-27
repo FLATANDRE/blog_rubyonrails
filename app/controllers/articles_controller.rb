@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @categories = CategoriesController.get_all_categories
+    @archives = ArchivesService.call
     flash.now[:notice] = "Our blog has #{Article.public_count} articles and counting!"
   end
 
