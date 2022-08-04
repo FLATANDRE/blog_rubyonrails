@@ -1,0 +1,24 @@
+<%= render "layouts/remote_modal", title: "Login to admin panel" do %>
+
+  <%= form_with url: :login_login, model: @user do |form| %>
+    <div class="mb-3">
+        <%= form.label :username, class: "form-label"%>
+        <%= form.text_field :username, class: "form-control" %>
+        <% @user.errors.full_messages_for(:username).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+    </div>
+    
+    <div class="mb-3">
+        <%= form.label :password, class: "form-label" %><br>
+        <%= form.text_field :password, class: "form-control" %>
+        <% @user.errors.full_messages_for(:password).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <%= form.submit "Login", class: "btn btn-primary" %>      
+
+  <% end %>
+
+<% end %>
