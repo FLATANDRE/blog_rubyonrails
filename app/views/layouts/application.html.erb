@@ -43,6 +43,8 @@
     </div>
 
     <main class="container">
+      <%= turbo_frame_tag "remote_modal", target: "_top" %>
+      
       <%= render "articles/longer_featured_post" %>
       <%= render "highlights/index" %>
 

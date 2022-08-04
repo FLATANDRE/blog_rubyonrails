@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'about/index'
   get 'archives/index'
   get 'highlights/index'
+  get 'login/login'
 end
