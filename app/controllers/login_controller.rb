@@ -4,11 +4,20 @@ class LoginController < ApplicationController
   end
 
   def login
-    @user = User.new(username: params[:username], password: params[:password])
-    
+    @user = User.new(user_params)
+    unless @user.username.nil? && @user.password.nil?
+      token = LoginService.call(@user.username, @user.password)
+      print token
+    end
   end
 
   def logout
     
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:username, :password)
+    end
+
 end
