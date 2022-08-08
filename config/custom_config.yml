@@ -1,5 +1,6 @@
 development:
   ipsum_api_base_url: "http://localhost:9080/api"
+  auth_service_url: "http://127.0.0.1:3001/v1/api/openid"
 
 production:
   ipsum_api_base_url: "<prod_url>/api"

@@ -1,3 +1,4 @@
+require 'rest-client'
 class LoginController < ApplicationController
   def index
     @user = User.new
@@ -7,7 +8,6 @@ class LoginController < ApplicationController
     @user = User.new(user_params)
     unless @user.username.nil? && @user.password.nil?
       token = LoginService.call(@user.username, @user.password)
-      print token
     end
   end
 
