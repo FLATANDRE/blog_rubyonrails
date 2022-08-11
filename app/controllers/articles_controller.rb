@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
     @categories = CategoriesController.get_all_categories
     @archives = ArchivesService.call
     @most_featured_article = FeaturedArticleService.call
+    @current_user = current_user_name
+
     flash.now[:notice] = "Our blog has #{Article.public_count} articles and counting!"
   end
 

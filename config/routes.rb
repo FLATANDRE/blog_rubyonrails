@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get 'highlights/index'
   get 'login/index'
   post 'login/login'
-  post 'login/logout'
+  get 'login/logout'
 
 end
